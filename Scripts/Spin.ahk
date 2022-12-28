@@ -292,7 +292,7 @@ if (Destruction==1)
 if (Necromancer==1)
 {
 	CoordMode, Pixel, Window
-	PixelSearch, FoundX, FoundY, 850, 432, 1071, 486, 0x350050, 0, Fast RGB
+	PixelSearch, FoundX, FoundY, 850, 432, 1071, 486, 0x4E0175, 0, Fast RGB
 	If (ErrorLevel = 0)
 	{
 	MsgBox, You got Necromancer!
