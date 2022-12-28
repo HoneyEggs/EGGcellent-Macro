@@ -6,6 +6,7 @@ Requirements:
 
 How to get it:
 - Click "code" then click "Download Zip"
+- Extract all of the files
 
 How it works:
 Grinding spins
