@@ -4,6 +4,8 @@ Requirements:
 - AutoHotKey (search it up and download the latest versoin)
 - Fullscreen
 
+How to get it:
+- Click "code" then click "Download Zip"
 
 How it works:
 Grinding spins
