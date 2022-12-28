@@ -1,4 +1,6 @@
 ﻿C:
+if (SpinS==1)
+{
 CoordMode, Pixel, Window
 ImageSearch, FoundX, FoundY, 0, 0, 1920, 1080, %A_ScriptDir%\Images\Ingame.png
 If (ErrorLevel = 0)
@@ -8,25 +10,36 @@ If (ErrorLevel = 0)
     Send, {r}
     Sleep, 111
     Send, {Enter}
+    Sleep, 7000
     Goto, C
     }
     Else
     {
     Goto, d
     }
+}
+
+if (Grind==1)
+{
+    Send, {Escape}
+    Sleep, 111
+    Send, {r}
+    Sleep, 111
+    Send, {Enter}
+    Sleep, 7000
+}
     d:
-    Click, 1155, 1030, 0
-    Sleep, 500
     Click, 1150, 1035 Left, Down
     Sleep, 50
     Click, 1160, 1025 Left, Up
-    Sleep, 50
+    Sleep, 500
     CoordMode, Pixel, Window
     ImageSearch, FoundX, FoundY, 0, 0, 1920, 1080, %A_ScriptDir%\Images\CE.png
     If (ErrorLevel = 0)
     {
     Goto, d
     }
+
 if (Grind==1)
 {
     CoordMode, Pixel, Window
@@ -54,8 +67,9 @@ Sleep, 84603924420000
     Click, 958, 690 Left, Down
     Sleep, 15
     Click, 958, 696 Left, Up
-    Sleep, 50
     g:
+if (SpinS==1)
+{
     CoordMode, Pixel, Window
     ImageSearch, FoundX, FoundY, 0, 0, 1920, 1080, %A_ScriptDir%\Images\ISOFF.png
     If (ErrorLevel = 0)
@@ -71,7 +85,18 @@ Else
 Goto, h
 }
 }
+}
+
 h:
+if (Grind==1)
+{
+ImageSearch, FoundX, FoundY, 0, 0, 1920, 1080, %A_ScriptDir%\Images\Spinning.png
+    If (ErrorLevel = 0)
+    {
+Goto, h
+    }
+}
+Sleep, 500
 if (Armament==1)
 {
 	CoordMode, Pixel, Window
@@ -111,7 +136,7 @@ if (Radiation==1)
 if (Chaos==1)
 {
 	CoordMode, Pixel, Window
-	PixelSearch, FoundX, FoundY, 850, 432, 1071, 486, 0x3A0158, 0, Fast RGB
+	PixelSearch, FoundX, FoundY, 850, 432, 1071, 486, 0x28003C, 0, Fast RGB
 	If (ErrorLevel = 0)
 	{
 	MsgBox, You got Chaos!
@@ -195,7 +220,7 @@ if (Lunar==1)
 if (Hydra==1)
 {
 	CoordMode, Pixel, Window
-	PixelSearch, FoundX, FoundY, 850, 432, 1071, 486, 0x01EB01, 0, Fast RGB
+	PixelSearch, FoundX, FoundY, 850, 432, 1071, 486, 0x00CC00, 0, Fast RGB
 	If (ErrorLevel = 0)
 	{
 	MsgBox, You got Hydra!
