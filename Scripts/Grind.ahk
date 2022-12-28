@@ -2,17 +2,17 @@
 Sleep, 333
 play:
 CoordMode, Pixel, Window
-ImageSearch, FoundX, FoundY, 0, 0, 1920, 1080, %A_ScriptDir%\Images\Ingame.png
+ImageSearch, FoundX, FoundY, 0, 0, 1920, 1080, %A_ScriptDir%\Images\Play.png
 If (ErrorLevel = 0)
-{
-Goto, e
-}
-Else if (ErrorLevel)
 {
 Click, 771, 1032 Left, Down
 Sleep, 10
 Click, 774, 1036 Left, Up
 Goto, play
+}
+Else if (ErrorLevel)
+{
+Goto, e
 }
 e:
 Send, {1}
