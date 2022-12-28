@@ -1,17 +1,27 @@
+[v1.6.2]
+Changes
+- The macro will now tell you what element you spun.
+
+Fixes
+- Fixed the macro not going to spin.
+- Fixed the macro nt stoping on Hydra.
+- Fixed macro confusing legend+ elements with Chaos.
+
+
 [v1.6.1]
 Changes
-- The macro will tell you what element you got
+- The macro will tell you what element you got.
 - Sped up the macro
 
 Fixes
-- Made the macro actually click buttons
+- Made the macro actually click buttons.
 
 [v1.6]
 Changes
 - Rewrote the entire element check script.
 - New "Spin" option.
 - GUI rework.
-- Renamed the macro to "EGGcellent Macro"
+- Renamed the macro to "EGGcellent Macro".
 
 Fixes
 - Fixed the macro not stopping after spinning and obtaining selected elements.
