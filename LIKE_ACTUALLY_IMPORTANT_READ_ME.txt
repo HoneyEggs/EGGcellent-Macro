@@ -1,7 +1,7 @@
 Requirements:
 - 100% Display Size (change it in windows settings)
 - 1920 x 1080 Display Resolution (change it in windows settings)
-- AutoHotKey 1.1 (search it up and download the latest versoin)
+- AutoHotKey 1.1 (search it up and download the latest version)
 - Fullscreen
 
 How to get it:
