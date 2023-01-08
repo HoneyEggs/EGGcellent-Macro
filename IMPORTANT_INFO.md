@@ -5,12 +5,12 @@ Requirements:
 - Fullscreen
 
 How to get it:
-- Click "code" then click "Download Zip"
+- Click the green "code" button, then click "Download Zip"
 - Extract all of the files
 
 How it works:
 Grinding spins
-- The macro will spam use moves 1 and 2 to level up until level 9
+- The macro will spam use moves 1 and 2 to level up. Depending on your "Grinding Element", it will stop at different levels
 - Then, it will go to spin.
 - It will spin once (if you accidently have keep level on, it will turn it off for you) to reset you level.
 - Depending on what you selected, the macro will stop if it encounters the specific element(s)
@@ -19,10 +19,10 @@ Grinding spins
 Auto-Spin
 - The macro imeediately goes to spin for an element
 - However, it will not turn on or off Keep Level for you
-- It will keep spinning until you run out of spins, or if it encounters the selected element(s)
+- It will keep spinning until you run out of spins, if it encounters the selected element(s), or if selected, it will start grinding spins with the settings of "Grind Spins"
 
 
-Info:
+ Other Info:
 - Double click on the "EGGcellent Macro" file to open the GUI.
 - DO NOT FUCK WITH THE "Images" FOLDER OF ANY OF THE IMAGES IN IT.
 - DO NOT FUCK WITH THE "Scripts" FOLDER EITHER.
