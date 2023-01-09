@@ -1,3 +1,11 @@
+[1.7.1]
+Changes
+- Lowered rejoining from 1 hour to 30 minutes
+
+Fixes
+- Fixed macro clicking buttons the mouse was over while going to click another.
+- Rejoining no longer joins another game by accident
+
 [v1.7]
 Changes
 - New "Modifications" area for the Spin Tab
