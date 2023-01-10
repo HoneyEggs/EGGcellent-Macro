@@ -1,4 +1,5 @@
 [1.7.2]
+
 Fixes
 - Fixed Macro not detecting if you spun Lava, Illusion, and Acceleration
 - Fixed Macro crashing Roblox by trying to rejoin the game twice the speed of sound
