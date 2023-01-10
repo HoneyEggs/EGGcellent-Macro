@@ -93,7 +93,7 @@ if (Grind==1)
 {
 if (Rejoin==1)
 {
-
+SetTimer, rejoin, 1800000
 }
 }
 start:
