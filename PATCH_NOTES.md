@@ -1,3 +1,9 @@
+[1.7.2]
+Fixes
+- Fixed Macro not detecting if you spun Lava, Illusion, and Acceleration
+- Fixed Macro crashing Roblox by trying to rejoin the game twice the speed of sound
+- Fixed Macro softlocking itself
+
 [1.7.1]
 Changes
 - Lowered rejoining from 1 hour to 30 minutes
