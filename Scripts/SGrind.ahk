@@ -1,6 +1,6 @@
 ﻿if (Rejoin==1)
 {
-SetTimer, rejoin2, 3600000
+SetTimer, rejoin2, 1800000
 }
 play2: 
 CoordMode, Pixel, Window
