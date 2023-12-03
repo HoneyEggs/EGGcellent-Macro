@@ -1,78 +1,105 @@
-[1.7.2]
-Fixes
-- Fixed Macro not detecting if you spun Lava, Illusion, and Acceleration
-- Fixed Macro crashing Roblox by trying to rejoin the game twice the speed of sound
-- Fixed Macro softlocking itself
-- Retook "Change Element" image to fix script not going to change element
+[v2.0] - The Rework Update (this update has not been released yet)
+Additions
+- New "Auto-Level" mode which allows you to level up automatically with the best method possible for the selected element.
+- Added "Dragon Blade" and "Spectre" into the Myths section.
+- You can now spin for Common, Uncommon, and Ascended elements.
+- New GUI-making style which makes the GUI look a lot better than with the last style I went with.
 
-[1.7.1]
 Changes
-- Lowered rejoining from 1 hour to 30 minutes
+- The ENTIRE macro's code has been rewritten because of how much of a mass it was.
+- Combined all modes and selections into a single tab called "Modes".
+- Moved all modes into custom subtabs that you can select.
+- The macro will now tell you what mode you're on at the bottom of the GUI.
+- Renamed the spin mode into "Auto-Spin" to make it clearer what it does and to distinguish it from the "Grind Spins" mode.
+- Combined all of the scattered settings across different tabs into a single tab called "Modifications".
+
+Fixes
+- Fixed the "Spin Grind" mode for good (hopefully).
+- Fixed macro not detecting if you spun Destruction
+
+Other
+- Due to how massive this update is, I've decided to skip to version 2.0 instead of going to v1.8.
+
+[1.7.2] - Spinning Fixed
+Fixes
+- Fixed Macro not detecting if you spun Lava, Illusion, and Acceleration.
+- Fixed Macro crashing Roblox by trying to rejoin the game twice the speed of sound.
+- Fixed Macro soft-locking itself.
+- Retook the "Change Element" image to fix the script not going to change the element.
+
+[1.7.1] - Rejoining Altered
+Changes
+- Lowered rejoining from 1 hour to 30 minutes.
 
 Fixes
 - Fixed macro clicking buttons the mouse was over while going to click another.
-- Rejoining no longer joins another game by accident
+- Rejoining no longer joins another game by accident.
 
-[v1.7]
+[v1.7] - The Modifications Update
+Additions
+- New "Modifications" area for the Spin Tab.
+
 Changes
-- New "Modifications" area for the Spin Tab
 - Updated the credits
-- Made some options more clearer on what they do
-- Sped up macro
-- The macro will now check if the spun element is white before doing anything else
+- Made some options clearer on what they do.
+- Sped up macro.
+- The macro will now check if the spun element is white before doing anything else.
 
 Fixes
-- Retook every level image and shrunk down the image detection box to hopfully fix macro going to spin after using a move once
+- Retook every level image and shrunk down the image detection box to hopefully fix the macro going to spin after using a move once.
 
-[v1.6.2]
+[v1.6.2] - The Information Update
 Changes
 - The macro will now tell you what element you spun.
 
 Fixes
 - Fixed the macro not going to spin.
-- Fixed the macro not stoping on Hydra.
-- Fixed macro confusing Chaos as Necromancer
+- Fixed the macro not stopping on Hydra.
+- Fixed macro confusing Chaos as Necromancer.
 
 
-[v1.6.1]
+[v1.6.1] - The Speed Update
 Changes
-- Sped up the macro
+- Sped up the macro.
 
 Fixes
 - Made the macro actually click buttons.
 
-[v1.6]
+[v1.6] - The Auto-Spin Update
+Additions
+- New "Spin" option.
+
 Changes
 - Rewrote the entire element check script.
-- New "Spin" option.
 - GUI rework.
 - Renamed the macro to "EGGcellent Macro".
 
 Fixes
 - Fixed the macro not stopping after spinning and obtaining selected elements.
 
-[v1.5]
+[v1.5] - Level Check Rewritten
 Changes
 - Rewrote the entire level check script.
 
 Fixes
-- Made it so that the macro wont spin if you take damage or die.
+- Made it so that the macro won't spin if you take damage or die.
 
-[v1.4]
-Changes
+[v1.4] - The More Elements Update
+Additions
 - Added a Legend+ and Myths option.
 
-[v1.3]
+[v1.3] - The GUI Update
 Changes
-- GUI WOOHOO :D
+- GUI WOOHOO :D.
 
-[v1.2]
+[v1.2] - The First Fix
 Fixes
-- Made the macro actually work for people without instant spin.
+- Made the macro work for people without instant spin.
 
-[v1.1]
-Changes
+[v1.1] - The Rare+ Update
+Additions
 - Made it so that the macro will stop if you land on a rare+ element.
 
-[v1.0]
-nothing...this is the first version after all (unless you want to say that creating this is the update).
+[v1.0] - The Macro Update
+Additions
+- Created The EGGcellent Macro.
