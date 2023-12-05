@@ -3,19 +3,16 @@ Additions
 - New "Auto-Level" mode which allows you to level up automatically with the best method possible for the selected element.
 - Added "Dragon Blade" and "Spectre" into the Myths section.
 - You can now spin for Common, Uncommon, and Ascended elements.
-- New GUI-making style which makes the GUI look a lot better than with the last style I went with.
+- New buttons at the bottom to control the macro instead of using just hotkeys.
+- The new GUI-making style makes the GUI look much better than the last style I went with.
 
 Changes
-- The ENTIRE macro's code has been rewritten because of how much of a mass it was.
-- Combined all modes and selections into a single tab called "Modes".
+- The ENTIRE macro's code has been rewritten because of how much of a mess it was.
+- Combined all modes and selections into a tab called "Modes".
 - Moved all modes into custom subtabs that you can select.
-- The macro will now tell you what mode you're on at the bottom of the GUI.
-- Renamed the spin mode into "Auto-Spin" to make it clearer what it does and to distinguish it from the "Grind Spins" mode.
-- Combined all of the scattered settings across different tabs into a single tab called "Modifications".
-
-Fixes
-- Fixed the "Spin Grind" mode for good (hopefully).
-- Fixed macro not detecting if you spun Destruction
+- The macro will now tell you what mode you're on at the bottom of the GUI and will give info on that mode if necessary.
+- Renamed the spin mode into "Auto-Spin" to clarify what it does and to distinguish it from the "Grind Spins" mode.
+- Combined all of the scattered settings across different tabs into a single section called "Settings" in the "Modes" Tab.
 
 Other
 - Due to how massive this update is, I've decided to skip to version 2.0 instead of going to v1.8.
