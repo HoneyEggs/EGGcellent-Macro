@@ -1,8 +1,8 @@
 Requirements:
 - 100% Display Size 
 - 1920 x 1080 Display Resolution
-- AutoHotKey 
-- Fullscreen
+- AutoHotKey (Latest, U32, and U64)
+- Fullscreen Capabilities
 
 Important Info:
 - Click the green "code" button, then click "Download Zip."
