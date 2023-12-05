@@ -1,4 +1,4 @@
-[v2.0] - The Rework Update (this update has not been released yet)
+[v2.0 Beta a] - The Rework Update: GUI
 Additions
 - New "Auto-Level" mode which allows you to level up automatically with the best method possible for the selected element.
 - Added "Dragon Blade" and "Spectre" into the Myths section.
@@ -16,7 +16,13 @@ Changes
 
 Other
 - Due to how massive this update is, I've decided to skip to version 2.0 instead of going to v1.8.
+- Currently, only the GUI is completed. The other modes have been disabled
 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[Older Patch Notes]
 [1.7.2] - Spinning Fixed
 Fixes
 - Fixed Macro not detecting if you spun Lava, Illusion, and Acceleration.
