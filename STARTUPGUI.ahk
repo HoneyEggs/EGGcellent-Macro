@@ -1,4 +1,4 @@
-﻿; EGGcellent Macro v2
+; EGGcellent Macro v2
 ; Made by HoneyEggs
 ; Made for people who can't make a macro, can't make a good macro, or are to lazy to make a good macro. (Enjoy! :D)
 ;
@@ -10,21 +10,26 @@
 #NoEnv
 #MaxThreads 255
 #Warn
+#WinActivateForce
+#Include %A_ScriptDir%
+#SingleInstance Force
 CoordMode, Mouse, Screen
 CoordMode, Pixel, Screen
 DetectHiddenWindows, Off
+SendMode Event
 SetWorkingDir %A_ScriptDir%
-SendMode Input
-#Include %A_ScriptDir%
-#SingleInstance Force
-SetTitleMatchMode 1
+SetTitleMatchMode 2
+SetControlDelay 1
+SetWinDelay 0
+SetKeyDelay 5
+SetMouseDelay 5
 SetBatchLines -1
 ;
 ;######################################################################################################################################################################################################
 ; PRE-MACRO SETUP (This is VERY important. Do not touch this)
 ;######################################################################################################################################################################################################
 ;
-; This section was taken from Natro Macro. All credits for this code goes to them.
+; The code below is a slightly altered version a section taken from Natro Macro. All credits for this code goes to them.
 ; checks for the correct AHK version before starting
 RunWith(32)
 RunWith(bits) {
@@ -57,20 +62,23 @@ if (h = -1)
 	}
 	; elevated but still can't write, read-only directory?
 	MsgBox, 0x40010, Error, You cannot run this macro in this folder!`nTry moving the macro to a different folder (e.g. Downloads, Desktop)
+	ExitApp
 }
 
 ; declare executable paths
 global exe_path32 := A_AhkPath
-global exe_path64 := (A_Is64bitOS && FileExist("subscripts\AutoHotkeyU64.exe")) ? (A_WorkingDir "\subscripts\AutoHotkeyU64.exe") : A_AhkPath
+global exe_path64 := (A_Is64bitOS && FileExist("submacros\AutoHotkeyU64.exe")) ? (A_WorkingDir "\submacros\AutoHotkeyU64.exe") : A_AhkPath
 
-;initial load warnings
-if (A_ScreenDPI*100//96 != 100)
+if (A_ScreenDPI*100//96 != 100) {
 	msgbox, 0x1030, WARNING!!, % "Your Display Scale seems to be a value other than 100`%. This means the macro will NOT work correctly!`n`nTo change this, right click on your Desktop -> Click 'Display Settings' -> Under 'Scale & Layout', set Scale to 100`% -> Close and Restart Roblox before starting the macro.", 60
+	ExitApp
+}
 ; Section by Natro Macro ends here.
 
 mode := 1
 TogglePause := 1
-Gui +AlwaysOnTop
+AlreadyChattedMaxLevel := 0
+Gui, +AlwaysOnTop
 ;
 ;######################################################################################################################################################################################################
 ; GUI (Unless you know how to do GUI stuff, Don't touch this.)
@@ -288,18 +296,18 @@ GuiControl, Hide, RadioKrampus
 ;{SETTINGS}
 Gui, Add, Text, x3 y479 vTextSettings, Settings:
 Gui, Add, GroupBox, x5 y498 w148 h93 vGroupBoxGUISettings, GUI
-Gui, Add, GroupBox, xp+150 yp w298 hp vGroupBoxGeneralSettings, General
+Gui, Add, GroupBox, xp+150 yp w298 hp vGroupBoxGeneralSettings, General [UNAVAILABLE]
 Gui, Add, GroupBox, xp+300 yp w448 hp vGroupBoxModeSettings, Mode Setting [GRIND SPINS]
 ;(GUI)
 Gui, Add, CheckBox, x15 y518 Checked vCheckBoxAlwaysOnTop gegg_CheckBoxAlwaysOnTop, Always On Top
 ;(General)
-Gui, Add, CheckBox, x165 y518 vCheckBoxRejoinAfter gegg_CheckBoxRejoinAfter, Rejoin After
+Gui, Add, CheckBox, x165 y518 Disabled vCheckBoxRejoinAfter gegg_CheckBoxRejoinAfter, Rejoin After
 Gui, Add, Edit, xp+77 yp-2 w25 h17 Disabled vEditRejoin
-Gui, Add, Text, xp+30 yp+2 vTextRejoinMinutes, Minutes
-Gui, Add, CheckBox, x165 y544 vCheckBoxSaveAfter gegg_CheckBoxSaveAfter, Save After
+Gui, Add, Text, xp+30 yp+2 Disabled vTextRejoinMinutes, Minutes
+Gui, Add, CheckBox, x165 y544 Disabled vCheckBoxSaveAfter gegg_CheckBoxSaveAfter, Save After
 Gui, Add, Edit, xp+72 yp-2 w25 h17 Disabled vEditSave
-Gui, Add, Text, xp+30 yp+2 vTextSaveMinutes, Minutes
-Gui, Add, CheckBox, x165 y570 vCheckBoxTypeInChatSwitchedMode, Type In Chat The Mode That Was Auto-Switched To
+Gui, Add, Text, xp+30 yp+2 Disabled vTextSaveMinutes, Minutes
+Gui, Add, CheckBox, x165 y570 Disabled vCheckBoxTypeInChatSwitchedMode, Type In Chat The Mode That Was Auto-Switched To
 ;(Mode Specific)
 ; Grind Spins
 Gui, Add, Checkbox, x465 y518 vCheckBoxSwitchToAutoLevel, Switch To "Auto-Level" Mode If Desired Element Is Spun
@@ -310,21 +318,21 @@ Gui, Add, DDL, xp+108 yp-3 w70 Choose1 vDDLSecondaryElement, None|Snow|Firework|
 Gui, Add, CheckBox, x465 y570 vCheckBoxSwitchToGrindSpins, Switch To Grind Spins If Spins Run Out
 GuiControl, Hide, CheckBoxSwitchToGrindSpins
 ; Auto-Level
-Gui, Add, CheckBox, x465 y518 vCheckBoxTypeInChatMaxLevel, Type In Chat If You Reach Max Level
+Gui, Add, CheckBox, x465 y518 vCheckBoxTypeInChatIfMaxLevel, Type In Chat If You Reach Max Level
 GuiControl, Hide, CheckBoxTypeInChatMaxLevel
 
 
 ;{MULTI-MODE GUI}	
-Gui, Add, Button, x1 y22 w302 vButtonGrindSpins gegg_ButtonGrindSpins Disabled, Grind Spins [DISABLED]
-Gui, Add, Button, xp+302 yp wp vButtonAutoSpin gegg_ButtonAutoSpin, Auto-Spin [DISABLED]
-Gui, Add, Button, xp+302 yp wp vButtonAutoLevel gegg_ButtonAutoLevel, Auto-Level [DISABLED]
+Gui, Add, Button, x1 y22 w302 Disabled vButtonGrindSpins gegg_ButtonGrindSpins, Grind Spins [UNAVAILABLE]
+Gui, Add, Button, xp+302 yp wp vButtonAutoSpin gegg_ButtonAutoSpin, Auto-Spin [UNAVAILABLE]
+Gui, Add, Button, xp+302 yp wp vButtonAutoLevel gegg_ButtonAutoLevel , Auto-Level
 Gui, Add, Text, x3 y51 vTextElementsToStopAt, Element(s) To Stop At:
 Gui, Add, GroupBox, x5 y70 w148 h405 vGroupBoxCommonsAndUncommons, Commons and Uncommons
-Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxAscendeds, Ascendeds
+Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxAscendeds, Ascendeds [DISABLED]
 Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxRares, Rares
 Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxLegends, Legends
 Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxMyths, Myths
-Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxSecondaries, Secondaries
+Gui, Add, GroupBox, xp+150 yp wp hp vGroupBoxSecondaries, Secondaries [DISABLED]
 Gui, Add, Text, x3 y70 w2 h406 0x7 vVerticalDivider1
 Gui, Add, Text, xp+150 yp wp hp 0x7 vVerticalDivider2
 Gui, Add, Text, xp+150 yp wp hp 0x7 vVerticalDivider3
@@ -359,9 +367,9 @@ Gui, Add, Text, xp yp+26 wp hp 0x7 vThinHorizontalDivider15
 Gui, Add, Text, xp y512 wp hp 0x7 vThinHorizontalDivider16
 Gui, Add, Text, xp yp+26 wp hp 0x7 vThinHorizontalDivider17
 Gui, Add, Text, xp yp+26 wp hp 0x7 vThinHorizontalDivider18
-Gui, Add, Button, x4 y597 w100 vButtonStart, Start/Restart (F1)
-Gui, Add, Button, xp+100 yp w100 vButtonPausePlay, Pause/Play (F2)
-Gui, Add, Button, xp+100 yp w100 vButtonStopReload, Stop/Reload (F3)
+Gui, Add, Button, x4 y597 w100 vButtonStartRestart gegg_ButtonStartRestart, Start/Restart (F1)
+Gui, Add, Button, xp+100 yp w100 vButtonPausePlay gegg_ButtonPausePlay, Pause/Play (F2)
+Gui, Add, Button, xp+100 yp w100 vButtonStopReload gegg_ButtonStopReload, Stop/Reload (F3)
 Gui, Add, Text, xp+102 yp-4 w1 h31 0x7 vThinVerticalDivider
 Gui, Add, Text, xp+4 yp+9 vTextCurrentMode, Current Mode: Grind Spins (Note: This mode WILL reset your level and spin off of your primary element.)
 Gui, Add, Text, xp+565 yp+9 vVersionNumber, v2.0.0
@@ -373,13 +381,17 @@ Gui, Show, w908 h625 Center, EGGcellent Macro
 ;
 ;[FUNCTIONS]
 ;{GUI Functions}
+egg_Submit(){
+	Gui, Submit, Nohide
+	return
+}
+
 egg_ChangeMode(modeNumber){ ; Switches the mode.
 	return modeNumber	
 }
 
-
 egg_ToggleModeGUI(buttonPressed){ ; Toggles the 3 subtabs.
-	Gui, Submit, Nohide
+	egg_Submit()
 	Gui, Tab, 1
 	if (buttonPressed = 1) {
 		; Hides the "Auto-Spin" subtab.
@@ -405,7 +417,7 @@ egg_ToggleModeGUI(buttonPressed){ ; Toggles the 3 subtabs.
 
 		; Hides the "Auto-Level" subtab.
 		GuiControl, Hide, TextElementToLevelUpWith
-		GuiControl, Hide, CheckBoxTypeInChatMaxLevel
+		GuiControl, Hide, CheckBoxTypeInChatIfMaxLevel
 
 		; Commons
 		GuiControl, Hide, RadioFire
@@ -613,7 +625,7 @@ egg_ToggleModeGUI(buttonPressed){ ; Toggles the 3 subtabs.
 
 		; Hides the "Auto-Level" subtab.
 		GuiControl, Hide, TextElementToLevelUpWith
-		GuiControl, Hide, CheckBoxTypeInChatMaxLevel
+		GuiControl, Hide, CheckBoxTypeInChatIfMaxLevel
 
 		; Commons
 		GuiControl, Hide, RadioFire
@@ -797,6 +809,7 @@ egg_ToggleModeGUI(buttonPressed){ ; Toggles the 3 subtabs.
 
 	} else if (buttonPressed = 3){
 		; Hides the "Grind Spins/Auto-Spin" subtab.
+		GuiControl, Hide, TextElementsToStopAt
 		GuiControl, Hide, ThinHorizontalDivider1
 		GuiControl, Hide, ThinHorizontalDivider2
 		GuiControl, Hide, ThinHorizontalDivider3
@@ -980,7 +993,7 @@ egg_ToggleModeGUI(buttonPressed){ ; Toggles the 3 subtabs.
 
 		;{Settings}
 		GuiControl, Text, GroupBoxModeSettings, Mode Settings [AUTO-LEVEL]
-		GuiControl, Show, CheckBoxTypeInChatMaxLevel
+		GuiControl, Show, CheckBoxTypeInChatIfMaxLevel
 		GuiControl, Show, ThinHorizontalDivider16
 		GuiControl, Show, ThinHorizontalDivider17
 		GuiControl, Show, ThinHorizontalDivider18
@@ -989,87 +1002,618 @@ egg_ToggleModeGUI(buttonPressed){ ; Toggles the 3 subtabs.
 	return
 }
 
+;{Macro Functions}
+egg_PlayButton(){
+	Loop
+	{
+		ImageSearch, X, Y, 708, 1020, 831, 1049, %A_ScriptDir%\images\play.png
+		if (ErrorLevel = 0){ ;Play is seen
+			SetTimer, egg_Reset, Off
+			break
+		}
+		else if (ErrorLevel = 1){ ;Play is not seen
+			continue
+		}
+	}
+			
+	Loop
+	{
+		ImageSearch, X, Y, 158, 926, 247, 951, %A_ScriptDir%\images\moves.png
+		if (ErrorLevel = 0){
+			return
+		}
+		else if (ErrorLevel = 1){
+			Click, 768, 1033
+		}
+	}
+}
+egg_AutoLevelFourMoves(reset){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	if (reset = 1){
+		SetTimer, egg_Reset, 7000
+		Gosub, egg_Reset
+		egg_PlayButton()
+	}
+	else if (reset = 0){
+		return
+	}
+	return
+}
+
+
+egg_AutoLevelFiveMoves(reset){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	Send, {5}
+	MouseMove, 657, 1009
+	Click
+	if (reset = 1){
+		SetTimer, egg_Reset, 7000
+		Gosub, egg_Reset
+		egg_PlayButton()
+	}
+	else if (reset = 0){
+		return
+	}
+	return
+}
+
+egg_AutoLevelSixMoves(reset){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	Send, {5}
+	MouseMove, 657, 1009
+	Click
+	Send, {6}
+	MouseMove, 657, 1009
+	Click
+	if (reset = 1){
+		SetTimer, egg_Reset, 7000
+		Gosub, egg_Reset
+		egg_PlayButton()
+	}
+	else if (reset = 0){
+		return
+	}
+	return
+}
+
+egg_AutoLevelSevenMoves(reset){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	Send, {5}
+	MouseMove, 657, 1009
+	Click
+	Send, {6}
+	MouseMove, 657, 1009
+	Click
+	Send, {7}
+	MouseMove, 657, 1009
+	Click
+	if (reset = 1){
+		SetTimer, egg_Reset, 7000
+		Gosub, egg_Reset
+		egg_PlayButton()
+	}
+	else if (reset = 0){
+		return
+	}
+	return
+}
+egg_AutoLevelHydraMoves(){
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	return
+}
+
+egg_AutoLevelDragonMoves(){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Sleep, 400
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	Send, {5}
+	MouseMove, 657, 1009
+	Click
+	Send, {6}
+	MouseMove, 657, 1009
+	Click
+	SetTimer, egg_Reset, 7000
+	Gosub, egg_Reset
+	egg_PlayButton()
+	return
+}
+
+egg_AutoLevelTimeMoves(){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	return
+}
+
+egg_AutoLevelDestructionMoves(){
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	Send, {6}
+	MouseMove, 657, 1009
+	Click
+	return
+}
+
+egg_AutoLevelFireworkMoves(){
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {1}
+	MouseMove, 657, 1009
+	Click
+	Sleep, 300
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {2}
+	MouseMove, 657, 1009
+	Click
+	Sleep, 300
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {4}
+	MouseMove, 657, 1009
+	Click
+	Sleep, 300
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	Send, {5}
+	MouseMove, 657, 1009
+	Click
+	Sleep, 300
+	Send, {3}
+	MouseMove, 657, 1009
+	Click
+	SetTimer, egg_Reset, 7000
+	Gosub, egg_Reset
+	egg_PlayButton()
+	return
+}
+return
 
 ;[SUBROUTINES]
 ;{GUI Subroutines}
 egg_ButtonGrindSpins:
-	Gui, Submit, Nohide
+	egg_Submit()
 	GuiControl, Disable, ButtonGrindSpins
 	GuiControl, Enable, ButtonAutoSpin
 	GuiControl, Enable, ButtonAutoLevel
 	egg_ToggleModeGUI(1)
 	mode := egg_ChangeMode(1) 
-	return
+return
 
 egg_ButtonAutoSpin:
-	Gui, Submit, Nohide
+	egg_Submit()
 	GuiControl, Enable, ButtonGrindSpins
 	GuiControl, Disable, ButtonAutoSpin
 	GuiControl, Enable, ButtonAutoLevel
 	egg_ToggleModeGUI(2)
 	mode := egg_ChangeMode(2)
-	return
+return
 
 egg_ButtonAutoLevel:
-	Gui, Submit, Nohide
+	egg_Submit()
 	GuiControl, Enable, ButtonGrindSpins
 	GuiControl, Enable, ButtonAutoSpin
 	GuiControl, Disable, ButtonAutoLevel
 	egg_ToggleModeGUI(3)
 	mode := egg_ChangeMode(3)
-	return
+return
+
+egg_ButtonStartRestart:
+	Gui, Minimize
+	WinActivate, Roblox
+	egg_Submit()
+	if (mode = 1){
+		MsgBox, Grinding spins is currently unavailable.
+	}
+	else if (mode = 2){
+		MsgBox, Auto-spinning is currently unavailable.
+	}
+	else if (mode = 3){
+		Gosub, egg_AutoLevelMode
+	}
+return
+
+egg_ButtonPausePlay:
+	egg_Submit()
+	if (TogglePause = 1){
+		Pause, Toggle, 1
+		TogglePause := 2
+	}
+	else if (TogglePause := 2){
+		Pause, Toggle
+		TogglePause := 1
+	}
+return
+
+egg_ButtonStopReload:
+	Reload
+return
 
 egg_CheckBoxAlwaysOnTop:
-	Gui, Submit, Nohide
+	egg_Submit()
 	if (CheckBoxAlwaysOnTop = 1) {
 	Gui +AlwaysOnTop
-	} else {
+	} else if (CheckBoxAlwaysOnTop = 0) {
 	Gui -AlwaysOnTop
 	}
-	return
+return
 
 egg_CheckBoxRejoinAfter:
-	Gui, Submit, Nohide
+	egg_Submit()
 	if (CheckBoxRejoinAfter = 1) {
 	GuiControl, Enable, EditRejoin
 	} else if (CheckBoxRejoinAfter = 0) {
 	GuiControl, Disable, EditRejoin
 	}
-	return
+return
 
 egg_CheckBoxSaveAfter:
-	Gui, Submit, Nohide
+	egg_Submit()
 	if (CheckBoxSaveAfter = 1) {
 	GuiControl, Enable, EditSave
-	} else if (CheckBoxSaveAfter = 0) {
+	}
+	else if (CheckBoxSaveAfter = 0) {
 	GuiControl, Disable, EditSave
 	}
-	return
+return
+
+;{Macro Subroutines}
+; Timers
+egg_Reset:
+	Send, {Escape}
+	Sleep, 20
+	Send, {R}
+	Sleep, 20
+	Send, {Enter}
+return
+
+; Modes
+egg_AutoLevelMode:
+	ImageSearch, MovesX, MovesY, 158, 926, 247, 951, %A_ScriptDir%\images\moves.png
+	if (ErrorLevel = 0){
+		Goto, AutoLevelLoop
+	}
+	else if (ErrorLevel = 1){
+		egg_PlayButton()
+	}
+AutoLevelLoop:		
+Loop
+{
+	if (RadioFire = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioWater = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioPoison = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioSand = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioDark = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioLight = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioIce = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioLightning = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioWood = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioEarth = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioWind = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioNova = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioExplosion = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioBlood = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioMetal = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioInferno = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioTorrent = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioToxin = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioDesert = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioYin = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioYang = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioPermafrost = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioBolt = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioNature = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioTerra = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioZephyr = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioSupernova = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioCombustion = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioHemomancer = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioObsidian = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioMechanization = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioLava = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioSound = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioChaos = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioRadiation = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioPlasma = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioArmament = 1){
+		egg_AutoLevelFourMoves(0)
+	}
+	else if (RadioLunar = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioPhoenix = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioSolar = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioHydra = 1){
+		egg_AutoLevelHydraMoves()
+	}
+	else if (RadioIllusion = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioCosmic = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioPrism = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioAcceleration = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioTelekinesis = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioDragon = 1){
+		egg_AutoLevelDragonMoves()
+	}
+	else if (RadioArcOfTheElements = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioTime = 1){
+		egg_AutoLevelTimeMoves()
+	}
+	else if (RadioHeavensWrath = 1){
+		egg_AutoLevelSevenMoves(0)
+	}
+	else if (RadioDestruction = 1){
+		egg_AutoLevelDestructionMoves()
+	}
+	else if (RadioNecromancer = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioDragonBlade = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioSpectre = 1){
+		egg_AutoLevelSixMoves(0)
+	}
+	else if (RadioSnow = 1){
+		egg_AutoLevelFourMoves(1)
+	}
+	else if (RadioFirework = 1){
+		egg_AutoLevelFireworkMoves()
+	}
+	else if (RadioDemon = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	else if (RadioDullahan = 1){
+		egg_AutoLevelFiveMoves(0)
+	}
+	else if (RadioKrampus = 1){
+		egg_AutoLevelFiveMoves(1)
+	}
+	if (CheckBoxTypeInChatIfMaxLevel = 1){
+		if (AlreadyChattedMaxLevel = 0){
+			PixelSearch, FoundX, FoundY, 113, 974, 140, 1004, 0xFFFF00, 0, Fast RGB
+			if (ErrorLevel = 0){
+				PixelSearch, ChatX, ChatY, 78, 22, 81, 24, 0xFFFFFF, 0, Fast RGB
+				if (ErrorLevel = 0){
+					Sleep, 1
+				}
+				else if (ErrorLevel = 1){
+					MouseMove, %ChatX%, %ChatY%
+					Click
+				}
+			Send, {NumpadDiv}
+			SendRaw, Max Level
+			Sleep, 500
+			Send, {Enter}
+			AlreadyChattedMaxLevel := 1
+			}
+			else if (ErrorLevel = 1){
+				continue
+			}
+		}
+		else if (AlreadyChattedMaxLevel = 1){
+			continue
+		}
+	}
+}
+return
 ;
 ;######################################################################################################################################################################################################
 ; HOTKEYS (You can touch this as long as you can remember the hotkeys you set.)
 ;######################################################################################################################################################################################################
 ;
 F1:: ;Starts/Restarts the macro.
+Gui, Minimize
+WinActivate, Roblox
+egg_Submit()
 if (mode = 1){
-	MsgBox, This mode is currently unavailable.
-} else if (mode = 2){
-	MsgBox, This mode is currently unavailable.
-} else if (mode = 3){
-	Msgbox, This mode is currently unavailable.
+	MsgBox, Grinding spins is currently unavailable.
+}
+else if (mode = 2){
+	MsgBox, Auto-spinning is currently unavailable.
+}
+else if (mode = 3){
+	Gosub, egg_AutoLevelMode
 }
 return
 
 F2:: ;Pauses/Plays the macro.
+egg_Submit()
 if (TogglePause = 1){
-	Pause, On
+	Pause, Toggle, 1
 	TogglePause := 2
-} else if (TogglePause := 2){
-	Pause, Off
+}
+else if (TogglePause := 2){
+	Pause, Toggle
 	TogglePause := 1
 }
 return
 
 F3:: ;Stops/Reloads the macro
 Reload
+return
+
+GuiClose:
+ExitApp
 return
