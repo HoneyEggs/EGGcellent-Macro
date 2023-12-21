@@ -1,9 +1,16 @@
+[v2.0 Beta b] - The Rework Update: Auto-Level
+Additions
+- Finished and enabled the "Auto-Level" mode.
+
+Fixes
+- Pausing and playing actually works now.
+
 [v2.0 Beta a] - The Rework Update: GUI
 Additions
 - New "Auto-Level" mode which allows you to level up automatically with the best method possible for the selected element.
 - Added "Dragon Blade" and "Spectre" into the Myths section.
 - You can now spin for Common, Uncommon, and Ascended elements.
-- New buttons at the bottom to control the macro instead of using just hotkeys.
+- New buttons at the bottom to control the macro instead of just hotkeys.
 - The new GUI-making style makes the GUI look much better than the last style I went with.
 
 Changes
@@ -15,8 +22,8 @@ Changes
 - Combined all of the scattered settings across different tabs into a single section called "Settings" in the "Modes" Tab.
 
 Other
-- Due to how massive this update is, I've decided to skip to version 2.0 instead of going to v1.8.
-- Currently, only the GUI is completed. The other modes have been disabled
+- Due to how massive this update is, I've decided to skip to version 2.0 instead of v1.8.
+- Currently, only the GUI is completed. The other modes have been disabled.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
