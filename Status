@@ -1,4 +1,16 @@
-[12/14/2023]
+[12/27/2023] 1:24 AM EST
+AHK v2
+- As I was about to start on the "Auto-Spin" mode, I discovered that AHK had made v2 its official version now.
+- This means that v1.1, which is what this macro was made using, won't be getting updates anymore.
+- So I've decided to convert this macro to v2.
+- Unfortunately, this means I have to rewrite the code...again.
+- It shouldn't take too long though.
+- As I am writing this, I have already finished most of the GUI.
+- After I finish the GUI and make it do stuff, I can just copy and paste the macro over.
+- That is all.
+
+
+[12/14/2023] 12:47 PM EST
 Cured.
 - I'm better now! :D
 
@@ -17,7 +29,7 @@ Progress Report #2
 - Hello again.
 - The new GUI for the macro has been finished
 - I also moved everything into 1 single tab except for the credits
-- Unfortunately, I will have to disable all of the modes since they aren't finished.
+- Unfortunately, I will have to disable all modes since they aren't finished.
 - I will release the first beta so you can get used to the new GUI while I work on the first mode.
 - I was originally going to do the "Grind Spins" mode first, but I've instead decided to do the "Auto-Level mode first.
 - This shouldn't take too long, so stay tuned for the next beta release!
