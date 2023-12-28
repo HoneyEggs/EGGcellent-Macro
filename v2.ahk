@@ -146,6 +146,6 @@ vGui.AddCheckbox("xp yp+26 vCheckBoxCombustion","Combustion")
 vGui.AddCheckbox("xp yp+26 vCheckBoxHemomancer","Hemomancer")
 vGui.AddCheckbox("xp yp+26 vCheckBoxObsidian","Obsidian")
 vGui.AddCheckbox("x315 y91 vCheckBoxMechanization","Mechanization")
-vGui.AddCheckbox("xp yp+26 vCheckBoxLava","")
+vGui.AddCheckbox("xp yp+26 vCheckBoxLava","Lava")
 vGui.Show("w908 h625 Center") ;shows the gui. the most important command in this entire section
 
