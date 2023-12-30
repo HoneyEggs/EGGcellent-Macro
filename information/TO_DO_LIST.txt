@@ -1,5 +1,10 @@
+For v2.0 Beta c:
 - Convert macro to AutoHotKey v2 {Doing}
-- start using jpegs instead of pngs to see if that will make the image search work {Not started}
-- Update Info file {Not started}
+- Start using jpegs instead of pngs to see if that will make the image search work {Done}
+- Update Info file {Doing}
+
+For v2.0 Beta d:
 - Create auto-spinner {Not started}
+
+For v2.0 Full Release
 - Create spin grinder {Not started}

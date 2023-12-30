@@ -1,15 +1,70 @@
 Requirements:
 - 100% Display Size 
 - 1920 x 1080 Display Resolution
-- AutoHotKey (Latest, U32, and U64)
+- AutoHotKey v2, Get it here: https://www.autohotkey.com
 - Fullscreen Capabilities
+- A good PC, no like seriously....
 
-Important Info:
-- Go to "Releases" and download the latest one.
+
+How to get:
+- Go to "Releases" and download the latest version.
 - Extract all of the files.
-- Double-click the "STARTUPGUI" file to open the GUI.
-- Edit any adjustments on the GUI, and press "F1" to start it (If you don't know how to press the F keys, some computers require that you hold down the "Fn" button before pressing them.)
-  
+- Double-click the "STARTUPGUI" batch file to open the GUI.
+- Windows may not trust the file and block it. Just tell it to run the file anyways.
+- If all steps have been done correctly, a GUI window should appear. This means that you in!
+
+
+How to use:
+Modes:
+There are 3 modes to choose from below.
+    "Grind Spins" Mode
+    - Unavailable. Check back another update.
+
+    "Auto-Spin" Mode
+    - Unavailable. Check back another update.
+
+    "Auto-Level" Mode
+    - First, select the element you want to auto-level with.
+    - The macro will automatically choose the best grinding method for the selected element.
+    - Don't be confused if the macro starts resetting itself, that is intentional. It's called reset grinding.
+
+Settings:
+There are 3 sections of settings you can choose from.
+    "GUI" Section
+    - This section alters the GUI window.
+    - "Always On Top" will have the GUI window always display over other window incase you don't want the GUI to minimize when you click on another window.
+
+    "General" Section
+    - This section changes how the macro behaves across all modes.
+    - This section is unavailable. Check back another update.
+
+    "Mode Settings" Section
+    - This section modifies how the current mode you on works. Changes accordingly.
+        "Grind Spins" Settings
+        - These settings are unavailable. Check back another update.
+
+        "Auto-Spin" Settings
+        - These settings are unavailable. Check back another update.
+
+        "Auto-Level" Settings
+        "Type In Chat If You Reach Max Level" will have the macro type in the chatbox "MAX LEVEL" if you reach max level. Only triggers once to prevent it from becoming an annoyance to others.
+
+Control Buttons:
+- Now that you have made your selections, you can control the macro with the 3 buttons on the bottom left of the window.
+    "Start (F1)" Button
+    - This button starts and plays the macro out based on your selections.
+    - You can also press "F1" to activate this button.
+
+    "Pause/Play (F2)" Button
+    - This button either pauses on the current action if the macro is playing, or continue from the paused action if the macro is paused.
+    - You can also press "F2" to activate this button.
+
+    "Stop and Reload (F3)" Button
+    - This button stops the macro completely and reloads it.
+    - It does not save your selections though (I'm working on it I promise!!!)
+    - You can also press (F3) to activate this button.
+    
+
 Other Info:
-- This macro is made mainly for people who don't know how to make a macro or an advanced one for themselves. You can edit the macro's code, but only if you know how to code with AutoHotKey.
+- This macro is made mainly for people who don't know how to make a macro, don't know how to make an advanced macro, or are to lazy to make a macro for themselves. You can edit the macro's code, but only if you know how to code with AutoHotKey v2.
 - Currently, only the "Auto-Level" mode is available.
