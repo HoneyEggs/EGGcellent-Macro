@@ -17,7 +17,7 @@ SETTINGS (I highly discourage touching this.)
 #Include %A_ScriptDir% ;includes the folder this macro is in
 #SingleInstance Force
 CoordMode "Mouse", "Screen"
-CoordMode "Pixel", "Client"
+CoordMode "Pixel", "Screen"
 DetectHiddenWindows false
 SendMode "Event" ;play doesnt work at all and input doesnt press buttons, so im using event
 SetWorkingDir A_ScriptDir ;a mistake a previous macro creator made when they sent their script in the egg discord! this allows me to access this folder no matter whos computer it's on!
