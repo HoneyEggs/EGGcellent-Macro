@@ -33,8 +33,8 @@ PRE-MACRO SETUP (This is VERY important. Do not touch this)
 */
 
 ; Checks for the correct bit interpreter.
-if (A_PtrSize = 4){
-	MsgBox "You need to run this macro on a 64-bit interpreter!`nIn order to do this, open the 'AutoHotkey Dash' -> Click 'Launch Settings' -> Next to 'Latest 2.x' and select '64-bit'`nOr click the button next to the URL and select 'AutoHotkey64'", "Wrong bit interpreter", 0x40010
+if (A_PtrSize = 8){
+	MsgBox "You need to run this macro on a 32-bit interpreter!`nIn order to do this, open the 'AutoHotkey Dash' -> Click 'Launch Settings' -> Next to 'Latest 2.x' and select '64-bit'`nOr click the button next to the URL and select 'AutoHotkey64'", "Wrong bit interpreter", 0x40010
 	ExitApp
 }
 ; Checks if the script is being ran as an admimistrator.
