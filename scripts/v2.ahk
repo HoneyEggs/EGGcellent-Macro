@@ -26,6 +26,7 @@ SetControlDelay 1
 SetWinDelay 0
 SetKeyDelay 5
 SetMouseDelay 5
+
 /*
 ######################################################################################################################################################################################################
 PRE-MACRO SETUP (This is VERY important. Do not touch this)
@@ -34,28 +35,36 @@ PRE-MACRO SETUP (This is VERY important. Do not touch this)
 
 ; Checks for the correct bit interpreter.
 if (A_PtrSize = 8){
-	MsgBox "You need to run this macro on a 32-bit interpreter!`nIn order to do this, open the 'AutoHotkey Dash' -> Click 'Launch Settings' -> Next to 'Latest 2.x' and select '64-bit'`nOr click the button next to the URL and select 'AutoHotkey64'", "Wrong bit interpreter", 0x40010
+	MsgBox "You need to run this macro on a 32-bit interpreter!`nIn order to do this, open the 'AutoHotkey Dash' -> Click 'Launch Settings' -> Next to 'Latest 2.x' and select '32-bit'`nOr click the button next to the URL and select 'AutoHotkey32'", "Wrong bit interpreter", 0x40010
 	ExitApp
 }
+
 ; Checks if the script is being ran as an admimistrator.
 if (!A_IsAdmin){
-	try Run '*RunAs "' A_AhkPath '" /restart "' A_ScriptFullPath '"'
-	ExitApp
+	try Run '*RunAs "' A_AhkPath '" /restart "' A_ScriptFullPath '"' ;trys to run the script as administrator
+	if (!A_IsAdmin){ ;if it fails to do so
+		MsgBox "You need to run this macro as administrator!", "Error", 0x40010 ;tell them to do it manually
+		ExitApp
+	}
 }
+
 ; Checks if the display size is at 100%
 if (A_ScreenDPI*100//96 != 100) {
 	Msgbox "Your Display Scale seems to be a value other than 100`n. This means that the macro will NOT work correctly!`n`nTo change this, right click on your Desktop -> Click 'Display Settings' -> Under 'Scale & Layout', set Scale to 100`n -> Close and Restart Roblox before starting the macro.", "Error", 0x1030
 	ExitApp
 }
+
 ; Pre-macro variables
 vMode := "AutoLevel"
 vPaused := false
 vAlreadyChattedMaxLevel := false ;this is the moment i realized that using boolean values is a lot easier than using 1 and 0 as placeholders for true and false
+
 /*
 ######################################################################################################################################################################################################
 GUI (Unless you know how to do GUI stuff, don't touch this.)
 ######################################################################################################################################################################################################
 */
+
 vGui := Gui("+AlwaysOnTop","EGGcellent Macro") ;apperently im forced to add a variable to the gui command for it to work >:(
 vGuiCtrl := Gui.Control
 vGuiTab := vGui.AddTab3("x-2 y0 w915 h705", ["Modes","Credits"]) ;adds the two tabs

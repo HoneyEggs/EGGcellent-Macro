@@ -1,9 +1,19 @@
+[v2.0 Beta c] - The Rework Update: AutoHotkey v2
+Changes
+- Converted the macro to AutoHotkey v2.
+- Retook current images as jpegs instead of pngs (it just makes more sense.)
+- The macro now runs on a 32-bit interpreter. This worked for another popular macro, so im trying it.
+
+
+
 [v2.0 Beta b] - The Rework Update: Auto-Level
 Additions
 - Finished and enabled the "Auto-Level" mode.
 
 Fixes
 - Pausing and playing actually works now.
+
+
 
 [v2.0 Beta a] - The Rework Update: GUI
 Additions
@@ -37,6 +47,8 @@ Fixes
 - Fixed Macro soft-locking itself.
 - Retook the "Change Element" image to fix the script not going to change the element.
 
+
+
 [1.7.1] - Rejoining Altered
 Changes
 - Lowered rejoining from 1 hour to 30 minutes.
@@ -44,6 +56,8 @@ Changes
 Fixes
 - Fixed macro clicking buttons the mouse was over while going to click another.
 - Rejoining no longer joins another game by accident.
+
+
 
 [v1.7] - The Modifications Update
 Additions
@@ -58,6 +72,8 @@ Changes
 Fixes
 - Retook every level image and shrunk down the image detection box to hopefully fix the macro going to spin after using a move once.
 
+
+
 [v1.6.2] - The Information Update
 Changes
 - The macro will now tell you what element you spun.
@@ -68,12 +84,15 @@ Fixes
 - Fixed macro confusing Chaos as Necromancer.
 
 
+
 [v1.6.1] - The Speed Update
 Changes
 - Sped up the macro.
 
 Fixes
 - Made the macro actually click buttons.
+
+
 
 [v1.6] - The Auto-Spin Update
 Additions
@@ -87,6 +106,8 @@ Changes
 Fixes
 - Fixed the macro not stopping after spinning and obtaining selected elements.
 
+
+
 [v1.5] - Level Check Rewritten
 Changes
 - Rewrote the entire level check script.
@@ -94,21 +115,31 @@ Changes
 Fixes
 - Made it so that the macro won't spin if you take damage or die.
 
+
+
 [v1.4] - The More Elements Update
 Additions
 - Added a Legend+ and Myths option.
+
+
 
 [v1.3] - The GUI Update
 Changes
 - GUI WOOHOO :D.
 
+
+
 [v1.2] - The First Fix
 Fixes
 - Made the macro work for people without instant spin.
 
+
+
 [v1.1] - The Rare+ Update
 Additions
 - Made it so that the macro will stop if you land on a rare+ element.
+
+
 
 [v1.0] - The Macro Update
 Additions
