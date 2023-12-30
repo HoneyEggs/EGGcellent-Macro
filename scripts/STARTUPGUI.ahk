@@ -297,7 +297,7 @@ GuiControl, Hide, RadioKrampus
 Gui, Add, Text, x3 y479 vTextSettings, Settings:
 Gui, Add, GroupBox, x5 y498 w148 h93 vGroupBoxGUISettings, GUI
 Gui, Add, GroupBox, xp+150 yp w298 hp vGroupBoxGeneralSettings, General [UNAVAILABLE]
-Gui, Add, GroupBox, xp+300 yp w448 hp vGroupBoxModeSettings, Mode Setting [GRIND SPINS]
+Gui, Add, GroupBox, xp+300 yp w448 hp vGroupBoxModeSettings, Mode Settings [GRIND SPINS]
 ;(GUI)
 Gui, Add, CheckBox, x15 y518 Checked vCheckBoxAlwaysOnTop gegg_CheckBoxAlwaysOnTop, Always On Top
 ;(General)
