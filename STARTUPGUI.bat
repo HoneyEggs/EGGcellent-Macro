@@ -63,7 +63,7 @@ if not [!grandparent!] == [] (
 				echo %yellow%Deleted successfully^^!%reset%
 				echo:
 				
-				echo %green%Unzip complete^^! Starting Natro Macro in 10 seconds.%reset%
+				echo %green%Unzip complete^^! Starting EGGcellent Macro in 10 seconds.%reset%
 				<nul set /p =%green%Press any key to skip . . . %reset%
 				timeout /t 10 >nul
 				start "" "%USERPROFILE%\%%~a\!folder!\scripts\AutoHotkey32.exe" "%USERPROFILE%\%%~a\!folder!\scripts\v2.ahk"
