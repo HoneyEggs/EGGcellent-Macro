@@ -1,3 +1,16 @@
+[5/8/2024]
+Break.
+- Hi.
+- It's been a while since i last did anything
+- Where have I been? Persuing my music carrer (and by that i mean struggle to make one good song)
+- But now im back again with some news
+- After some short reconsideration, I have decided not to update the macro to AHKv2 for 3 main reasons:
+1. It will take too long
+2. AHKv2 is harder to work with than AHKv1.1
+3. I don't really need to update it. v1.1 works just fine.
+- So with that out of the way, I will now be resuming my work on the EGGcellent Macro.
+- The next thing to work on would be auto-spinning.
+
 [12/27/2023] 1:24 AM EST
 AHK v2
 - As I was about to start on the "Auto-Spin" mode, I discovered that AHK had made v2 its official version now.
