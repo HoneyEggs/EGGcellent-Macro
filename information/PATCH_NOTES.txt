@@ -1,6 +1,5 @@
-[v2.0 Beta c] - The Rework Update: AutoHotkey v2
+[v2.0 Beta c] - The Rework Update: Auto-Spin
 Changes
-- Converted the macro to AutoHotkey v2.
 - Retook current images as jpegs instead of pngs (it just makes more sense.)
 - The macro now runs on a 32-bit interpreter. This worked for another popular macro, so im trying it.
 
