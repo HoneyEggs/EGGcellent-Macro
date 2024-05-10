@@ -4,15 +4,15 @@ setlocal EnableDelayedExpansion
 cd %~dp0
 
 :: IF script and executable exist, run the macro
-if exist "scripts\v2.ahk" (
-	if exist "scripts\AutoHotkey32.exe" (
+if exist "scripts\STARTUPGUI.ahk" (
+	if exist "scripts\AutoHotkeyU32.exe" (
 		if not [%~3]==[] (
 			set /a "delay=%~3" 2>nul
 			echo Starting EGGcellent Macro in !delay! seconds.
 			<nul set /p =Press any key to skip . . . 
 			timeout /t !delay! >nul
 		)
-		start "" "%~dp0scripts\AutoHotkey32.exe" "%~dp0scripts\v2.ahk" %*
+		start "" "%~dp0scripts\AutoHotkeyU32.exe" "%~dp0scripts\STARTUPGUI.ahk" %*
 		exit
 	) else (set "exe_missing=1")
 )
@@ -27,7 +27,7 @@ set yellow=%\e%[93m
 set reset=%\e%[0m
 
 if "%exe_missing%" == "1" (
-	echo %red%Could not find scripts\AutoHotkey32.exe^^!%reset%
+	echo %red%Could not find scripts\AutoHotkeyU32.exe^^!%reset%
 	echo %red%This is most likely due to a third-party antivirus deleting the file:%reset%
 	echo %red% 1. Disable any third-party antivirus software ^(or add the EGGcellent Macro folder as an exception^)%reset%
 	echo %red% 2. Re-extract the macro and check that AutoHotkey32.exe exists in 'scripts' folder%reset%
@@ -66,7 +66,7 @@ if not [!grandparent!] == [] (
 				echo %green%Unzip complete^^! Starting EGGcellent Macro in 10 seconds.%reset%
 				<nul set /p =%green%Press any key to skip . . . %reset%
 				timeout /t 10 >nul
-				start "" "%USERPROFILE%\%%~a\!folder!\scripts\AutoHotkey32.exe" "%USERPROFILE%\%%~a\!folder!\scripts\v2.ahk"
+				start "" "%USERPROFILE%\%%~a\!folder!\scripts\AutoHotkeyU32.exe" "%USERPROFILE%\%%~a\!folder!\scripts\STARTUPGUI.ahk"
 				exit
 			)
 		)
